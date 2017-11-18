@@ -44,7 +44,13 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "A"
- 
+ app.touch(2, 6);
+        app.touch(3, 6);
+        app.touch(4, 6);
+        app.touch(5, 6);
+
+        // Select Menu "A"
+        app.execute("A");
         // Assertion
         assertEquals("MyCards", app.screen());            
     }
@@ -55,7 +61,13 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "B"
- 
+  app.touch(1, 6);
+        app.touch(2, 6);
+        app.touch(3, 6);
+        app.touch(4, 6);
+
+        
+        app.execute("B");
         // Assertion
         assertEquals("Payments", app.screen());            
     }
@@ -65,7 +77,13 @@ public class CommandPatternTest
     {
         assertEquals("PinScreen", app.screen());
         // Login with pin
+ app.touch(1, 6);
+        app.touch(2, 6);
+        app.touch(3, 6);
+        app.touch(4, 6);
 
+  
+        app.execute("C");
         // Select Menu "C"
  
         // Assertion 
@@ -78,7 +96,13 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "D"
- 
+ app.touch(1, 6);
+        app.touch(2, 6);
+        app.touch(3, 6);
+        app.touch(4, 6);
+
+       
+        app.execute("D");
         // Assertion 
         assertEquals("Store", app.screen());            
     }
