@@ -35,6 +35,9 @@ public class ObserverPatternTest
     {
         // Set up Key Pad and Pin Entry Machine
         // Using Observer Pattern  
+         kp = new KeyPad();
+        pin = new PinEntryMachine();
+        kp.attach(pin);
     }
 
 
@@ -44,7 +47,8 @@ public class ObserverPatternTest
         // Key Pad Press 1
 
         // Assert D1 is "1" (replace with appropriate test)
-        assertTrue( false ) ;
+        kp.touch(1,6);
+        assertTrue(pin.d1(),"1" ) ;
     }
 
     @Test
@@ -54,7 +58,11 @@ public class ObserverPatternTest
 
         // Assert D1 and D2 are correct 
         // (replace with appropriate test)
-        assertTrue( false ) ;
+        kp.touch(1,6);
+        kp.touch(2,6);
+        
+        assertEquals( pin.d1(),"1"); 
+        assertEquals( pin.d2(),"2");
     }
 
     @Test
@@ -64,17 +72,31 @@ public class ObserverPatternTest
 
         // Assert D1, D2 and D3 are correct
         // (replace with appropriate test)
-        assertTrue( false ) ;
+       kp.touch(1,6);
+        kp.touch(2,6);
+        kp.touch(3,6);
+        // Assert D1, D2, D3 and D4 are correct
+        // (replace with appropriate test)
+       assertEquals( pin.d1(),"1");
+        assertEquals( pin.d2(),"2");
+        assertEquals( pin.d3(),"3");
+       
      }
 
     @Test
     public void testFourKeys()
     {
         // Key Pad Press 1, 2, 3 and 4
-
-        // Assert D1, D2, D3 and D4 are correct
+   kp.touch(1,6);
+        kp.touch(2,6);
+        kp.touch(3,6);
+        kp.touch(4,6);
+        // Assert D1 and D2 are correct
         // (replace with appropriate test)
-        assertTrue( false ) ;
+        assertEquals( pin.d1(),"1");
+        assertEquals( pin.d2(),"2");
+        assertEquals( pin.d3(),"3");
+        assertEquals( pin.d4(),"4");
     }
 
    @Test
@@ -84,14 +106,21 @@ public class ObserverPatternTest
 
         // Assert D1, D2, D3, D4 are correct
         // (replace with appropriate test)
-        assertTrue( false ) ;
-
-        // Key Pad Press 1, 2, 3 and 4 and then backspace
-
-
-        // Assert D1, D2, D3, D4 are correct
+       kp.touch(1,6);
+        kp.touch(2,6);
+        kp.touch(3,6);
+        kp.touch(4,6);
+        // Assert D1 and D2 are correct
         // (replace with appropriate test)
-        assertTrue( false ) ;        
+        assertEquals( pin.d1(),"1");
+        assertEquals( pin.d2(),"2");
+        assertEquals( pin.d3(),"3");
+        assertEquals( pin.d4(),"4");
+        // Assert D1, D2 and D3 are correct
+        // (replace with appropriate test)
+
+        kp.touch(3,8);
+        assertEquals( pin.d4(),"");     
 
     }
     
